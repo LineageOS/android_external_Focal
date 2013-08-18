@@ -269,10 +269,8 @@ std::vector<const T *> Ransac::compute(S &parameters,
             std::cout << "yup estimate" << std::endl;
             //see how many agree on this estimate
             numVotesForCur = 0;
-            std:: cout << "gonna memset" << std::endl;
             memset(curVotes,'\0',numDataObjects*sizeof(short));
             for(j=0; j<(int)numDataObjects; j++) {
-                std::cout << "will we agree?" << std::endl;
                 if(paramEstimator.agree(exactEstimateParameters, data[j])) {
                     std::cout << "agreed" << std::endl;
                     curVotes[j] = 1;
@@ -413,7 +411,6 @@ void Ransac::estimate(const Estimator & paramEstimator, const std::vector<T> &da
 	int numVotesForCur;//initalize with -1 so that the first computation will be set to best
 	int j;
 
-        std::cout << "memset'ing" << std::endl;
 	numDataObjects = data.size();
 	memset(curVotes,'\0',numDataObjects*sizeof(short));
 	numVotesForCur=0;
